@@ -62,7 +62,7 @@ function printQuote() {
         if (randomQuote.hasOwnProperty("citation")) {
             quote += "<p class=\"source\">" + randomQuote.source +
             "<span class=\"citation\">" + randomQuote.citation + "</span>"
-            "<span class=\"year\">" + randomQuote.year.toString() + "</span></p>"
+            "<span class=\"year\">" + randomQuote.year + "</span></p>"
             console.log(randomQuote.year);
         }else {
             quote += "<p class=\"source\">" + randomQuote.source + "</p>"
