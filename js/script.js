@@ -1,7 +1,5 @@
-// FSJS - Random Quote Generator
 
-// Create the array of quote objects and name it quotes
-var quotes = [
+const quotes = [
     {
         quote: "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
         source: "Eleanor Roosevelt",
@@ -44,45 +42,28 @@ var quotes = [
     }
 ];
 
-
-// Create the getRandomQuote function and name it getRandomQuote
-
-function getRandomQuote() {
+let getRandomQuote = () => {
     randomObject = quotes[Math.floor(Math.random()* 8)];
     return randomObject;
 }
 
-// Create the printQuote funtion and name it printQuote
-
-function printQuote() {
+let printQuote = () => {
     randomQuote = getRandomQuote();
-    var quote = "<p class=\"quote\">" + randomQuote.quote + "</p>";
-    var outputDiv = document.getElementById("quote-box");
+    let quote = `<p class="quote">  ${randomQuote.quote}  </p>`;
+    let outputDiv = document.getElementById("quote-box");
     
         if (randomQuote.hasOwnProperty("citation")) {
-            quote += "<p class=\"source\">" + randomQuote.source +
-            "<span class=\"citation\">" + randomQuote.citation + "</span>"
-            "<span class=\"year\">" + randomQuote.year + "</span></p>"
-            console.log(randomQuote.year);
+            quote += `<p class="source">  ${randomQuote.source} 
+            <span class="citation">  ${randomQuote.citation}  </span> 
+            <span class="year">  ${randomQuote.year} </span></p>`
+            
         }else {
-            quote += "<p class=\"source\">" + randomQuote.source + "</p>"
+            quote += `<p class="source"> ${randomQuote.source} </p>`
         }
     
     outputDiv.innerHTML = quote;
     return outputDiv.innerHTML;
 }
 
-
-
-
-// This event listener will respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-/*
-<p class="quote"> [quote here] </p>
-<p class="source"> [source here]
-  <span class="citation"> [citation here] </span>
-  <span class="year"> [year here] </span>
-</p>
-*/
